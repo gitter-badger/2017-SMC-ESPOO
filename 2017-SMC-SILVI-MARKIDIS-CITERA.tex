@@ -1,0 +1,549 @@
+% -------------------------------------------------------------------------------------------
+% Template for SMC 2016 ---------------------------------------------------------------------
+% adapted from the template for SMC 2012 and 2011, which were adapted from that of SMC 2010 -
+% -------------------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------------
+
+\documentclass{article}
+\usepackage{smc2017}
+\usepackage{times}
+\usepackage{ifpdf}
+\usepackage[english]{babel}
+\usepackage{cite}
+
+%%%%%%%%%%%%%%%%%%%%%%%% Some useful packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% See related documentation %%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{amsmath} % popular packages from Am. Math. Soc. Please use the 
+%\usepackage{amssymb} % related math environments (split, subequation, cases,
+%\usepackage{amsfonts}% multline, etc.)
+%\usepackage{bm}      % Bold Math package, defines the command \bf{}
+\usepackage{paralist} % extended list environments
+%%subfig.sty is the modern replacement for subfigure.sty. However, subfig.sty 
+%%requires and automatically loads caption.sty which overrides class handling 
+%%of captions. To prevent this problem, preload caption.sty with caption=false 
+%\usepackage[caption=false]{caption}
+%\usepackage[font=footnotesize]{subfig}
+
+%user defined variables
+\def\papertitle{OMNIDIRECTIONAL POINTS OF LISTENING}
+\def\firstauthor{Giuseppe Silvi}
+\def\secondauthor{Marco Matteo Markidis}
+\def\thirdauthor{Pasquale Citera}
+
+% adds the automatic
+% Saves a lot of ouptut space in PDF... after conversion with the distiller
+% Delete if you cannot get PS fonts working on your system.
+
+% pdf-tex settings: detect automatically if run by latex or pdflatex
+\newif\ifpdf
+\ifx\pdfoutput\relax
+\else
+   \ifcase\pdfoutput
+      \pdffalse
+   \else
+      \pdftrue
+\fi
+
+\ifpdf % compiling with pdflatex
+  \usepackage[pdftex,
+    pdftitle={\papertitle},
+    pdfauthor={\firstauthor, \secondauthor, \thirdauthor},
+    bookmarksnumbered, % use section numbers with bookmarks
+    pdfstartview=XYZ % start with zoom=100% instead of full screen; 
+                     % especially useful if working with a big screen :-)
+   ]{hyperref}
+  %\pdfcompresslevel=9
+
+  \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are and their extensions so 
+  %you won't have to specify these with every instance of \includegraphics
+  \graphicspath{{./figures/}}
+  \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+
+  \usepackage[figure,table]{hypcap}
+
+\else % compiling with latex
+  \usepackage[dvips,
+    bookmarksnumbered, % use section numbers with bookmarks
+    pdfstartview=XYZ % start with zoom=100% instead of full screen
+  ]{hyperref}  % hyperrefs are active in the pdf file after conversion
+
+  \usepackage[dvips]{epsfig,graphicx}
+  % declare the path(s) where your graphic files are and their extensions so 
+  %you won't have to specify these with every instance of \includegraphics
+  \graphicspath{{./figures/}}
+  \DeclareGraphicsExtensions{.eps}
+
+  \usepackage[figure,table]{hypcap}
+\fi
+
+%setup the hyperref package - make the links black without a surrounding frame
+\hypersetup{
+    colorlinks,%
+    citecolor=black,%
+    filecolor=black,%
+    linkcolor=black,%
+    urlcolor=black
+}
+
+\hyphenation{so-ur-ces}
+\hyphenation{el-ec-tro-aco-us-ti-cal}
+
+
+% Title.
+% ------
+\title{\papertitle}
+
+% Authors
+% Please note that submissions are NOT anonymous, therefore 
+% authors' names have to be VISIBLE in your manuscript. 
+%
+% Single address
+% To use with only one author or several with the same address
+% ---------------
+%\oneauthor
+%   {\firstauthor} {Affiliation1 \\ %
+%     {\tt \href{mailto:author1@smcnetwork.org}{author1@smcnetwork.org}}}
+
+%Two addresses
+%--------------
+% \twoauthors
+%   {\firstauthor} {Affiliation1 \\ %
+%     {\tt \href{mailto:author1@smcnetwork.org}{author1@smcnetwork.org}}}
+%   {\secondauthor} {Affiliation2 \\ %
+%     {\tt \href{mailto:author2@smcnetwork.org}{author2@smcnetwork.org}}}
+
+% Three addresses
+% --------------
+ \threeauthors
+   {\firstauthor} {Conservatorio S. Cecilia di Roma \\ %
+     {\tt \href{mailto:me@giuseppesilvi.com}{me@giuseppesilvi.com}}}
+   {\secondauthor} {nonoLab \\ %
+     {\tt \href{mailto:mm.markidis@gmail.com}{mm.markidis@gmail.com}}}
+   {\thirdauthor} { EarShot srls \\ %
+     {\tt \href{mailto:pasqualecitera81@gmail.com}{pasqualecitera81@gmail.com}}}
+
+% -------------------------------------------------------------------------------------------
+% ************************************************** the document starts here ***************
+% -------------------------------------------------------------------------------------------
+\begin{document}
+%
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ TO DO LIST ++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\textbf{to do list}
+
+\begin{compactitem}
+	\item A to A module
+	\item comparison omni, stereo, soundfield?
+	\item octave plot of shape with pitch colours
+	\item path to loudness
+	\item shape of chromatic scale
+	\item shape of density
+	\item shape of berio seq IXb
+	\item mono to stereo strategy
+\end{compactitem}
+\clearpage
+%
+\capstartfalse
+\maketitle
+\capstarttrue
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ABSTRACT ++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\begin{abstract}
+
+Place your abstract at the top left column on the first page.
+Please write about 150--200 words that specifically highlight the purpose of your work,
+its context, and provide a brief synopsis of your results.
+Avoid equations in this part.
+
+\end{abstract}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ INTRODUCTION ++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\section{Introduction}
+\label{sec:intro}
+
+The core of this research is about the \emph{equilibrium} of acoustical and electroacoustical
+sources for music performances and mixed media concert environment.
+
+The starting point is the assumption that there are not shared characteristics from both
+acoustical and electroacoustical sources. Acoustical sources, their pressure and power on air,
+came to ears through the full space in a \emph{transparent} way. Loudspeaker, the best one,
+push air in partial space in a \emph{visible} way.
+
+Acoustic differences from mixed sources may cause distraction and distortion of acoustic reality. 
+
+First remarkable step into this conception is clarify the stereo concept by the assumption that
+we consider stereo a listening attitude an call stereo a technology able to reproduce sound with
+directional informations and the illusion of audible perspective.
+
+Stereo is a listening attitude and not a reproduction channel array.
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ROOTS ++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\section{Historical Roots}
+\label{sec:roots}
+
+In the beginning was the tetrahedron. Despite its greek roots, we know the Tetrahedron
+only through Michael Gerzon \cite{mgamb02} postulations. Michael Gerzon, better than
+Pitagora and Euclide, understood the efficiencies of tetrahedral shape for omnidirectional
+sound description. 
+
+\textbf{small description of what of ambisonic will referenced }
+
+The \emph{S.T.ONE} project (\emph{Spherical Tetrahedral ONE}) grew up from the need of an
+electroacoustic environment in which acoustical and electronic instruments have the same
+impact on listeners.
+
+A traditional loudspeaker could be controlled only on dynamic dimension of power.
+This power control can't establish complete balance of each aspect of sound propagation for
+acoustical instruments. Each acoustical instrument have a complex propagation that
+combine dynamics, timbre and sound shape relationship. This difference, between instruments
+and traditional loudspeaker is responsible of unglue from acoustics and electronics.
+
+\emph{S.T.ONE} is a tetrahedral loudspeaker able to reproduce spherical sound field. to be conitinued?
+
+\emph{TETRAREC} is a spaced non-directional microphone technique based on tetrahedral shape. to be continued? 
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ STONE ++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\section{S.T.ONE}
+\label{sec:stone}
+
+The \emph{S.T.ONE} loudspeaker define a simplest way to design spherical sound shape. to be continued?
+
+Omnidirectional point of listening as synthesis of sources not space.
+Space synthesis through sources synthesis. to be continued?
+
+Photos
+
+Schemes
+
+cad
+
+The first work for S.T.ONE is \emph{Attraverso la lente} (\emph{through the lens)}
+an acousmatic work by Giuseppe Silvi (2009) five years before first S.T.ONE loudspeaker
+was made. The work came from strong knowledge of principles of tetrahedral sound description,
+without the same knowledge on loudspeaker design. When the project was ready, on 2014,
+the first stage of development involved a spherical sound diffusion technique of acousmatic
+music (\emph{EMUFest 2014}) while a research path concerning the \emph{Sound Shape} of
+traditional instruments was taking place.
+
+The \emph{Sound Shape} is the perceived shape of an acoustic object. During  the recording of
+\emph{13 Degrees of Darkness} (A. Lucier, for and pre-recorded flute, performed during
+EMUFest 2014) the \emph{\textbf{TETRAREC}} technique for \emph{Sound Diffusion} recording
+of acoustical instruments was developed.
+
+With \emph{S.T.ONE} and \emph{TETRAREC} a new approach to electroacoustic music is possible
+for a better integration between acoustical instruments and electronics.
+ 
+\emph{S.T.ONE} is a product of this research, where live performance with balance between
+acoustical and electronics is complete, poly-dimensional and completely new to audience.
+
+With \emph{S.T.ONE} loudspeaker you could control sound reproduction in each direction of
+space and integrate each control on a dedicate music composition approach.
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\subsection{Mono to Stereo Strategy}
+\label{sec:m2st}
+
+In traditinal panning, or amplitude panning, the natural approach to move mono sounds in a
+determinate position is related on array of loudspeaker . 
+
+With STONE a strategy for stereo diffusion of mono sources should be bla bla bla mono eq shape etc
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\subsection{Stereo from one point of listening}
+\label{sec:stereo}
+
+Consider stereo as attitude of listening permits strategies for sound reproduction without 
+predeterminate rules on number of loudspeaker. A single STONE loudspeaker should reproduce stereo
+sounds from one point.
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+\subsection{AtoA module}
+\label{sec:atoa}
+
+Gerzon's A-Format and STONE have twisted destinies 
+
+%\begin{figure}[t]
+%\centering
+%\includegraphics[width=0.6\columnwidth]{figure}
+%\caption{Figure captions should be placed below the figure, 
+%exactly like this.\label{fig:example}}
+%\end{figure}
+%
+%%\begin{figure}[t]
+%%\figbox{
+%%\subfloat[][]{\includegraphics[width=60mm]{figure}\label{fig:subfigex_a}}\\
+%%\subfloat[][]{\includegraphics[width=80mm]{figure}\label{fig:subfigex_b}}
+%%}
+%%\caption{Here's an example using the subfig package.\label{fig:subfigex} }
+%%\end{figure}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++TETRAREC+++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{TETRAREC}
+\label{sec:tetrarec}
+
+
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++TETRAREC+++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{SOUND SHAPE}
+\label{sec:sshape}
+
+On sound shape concept.
+
+\subsection{Chromatic Shape}
+\label{sec:cshape}
+
+Plot della scala cromatica di un sax e di un flauto
+
+\subsection{Density 21.5 Shape}
+\label{sec:dshape}
+
+Plot di density
+
+\subsection{A Berio Shape}
+\label{sec:bshape}
+
+plot della sequenza IXb
+
+%\begin{figure}[t]
+%\centering
+%\includegraphics[width=0.6\columnwidth]{figure}
+%\caption{Figure captions should be placed below the figure, 
+%exactly like this.\label{fig:example}}
+%\end{figure}
+%
+%%\begin{figure}[t]
+%%\figbox{
+%%\subfloat[][]{\includegraphics[width=60mm]{figure}\label{fig:subfigex_a}}\\
+%%\subfloat[][]{\includegraphics[width=80mm]{figure}\label{fig:subfigex_b}}
+%%}
+%%\caption{Here's an example using the subfig package.\label{fig:subfigex} }
+%%\end{figure}
+
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++PS01+++++
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+\section{\emph{PS: Song \#01}. Case Study.}
+\label{sec:ps01}
+
+pasquale citera compila questa parte musicale
+
+il materiale audio sia elettronico (bformat) che tetraedrico può essere analizzato da marco.
+
+%\section{Introduction}\label{sec:introduction}
+%This template includes all the information about formatting manuscripts for 
+%the SMC2017 Conference.
+%Please use \LaTeX{} templates when 
+%preparing your submission.
+%Please follow these guidelines to give the final proceedings a professional look.
+%If you have any questions, please contact the SMC2017 organizers.
+%This template can be downloaded from:
+%\url{http://smc2017.aalto.fi}.
+%
+%\section{Page size and format}\label{sec:page_size}
+%Your paper must not exceed {\bf 8 pages},
+%no matter if you are presenting orally or posterly.
+%We \underline{strongly encourage}
+%a paper length of {\bf 6 pages}.
+%We will format the proceedings as
+% \underline{portrait A4-size paper} \underline{(21.0cm x 29.7cm)}.
+%All material on each page should fit within a rectangle of 17.2cm x 25.2cm,
+%centred on the page, beginning 2.0cm from the top of the page and ending 
+%with 2.5cm from the bottom.
+%The left and right margins should be 1.9cm.
+%The text should be in two 8.2cm columns with a 0.8cm gutter.
+%All text must be in a two-column format, and justified.
+%If you prepare your document by cutting and pasting into this one,
+%then you should not have to worry, 
+%unless there is something strange with your \LaTeX{} interpreter.
+%So double check.
+%If you have any questions, please contact the SMC2016 organizers.
+%
+%\section{Typeset Text}\label{sec:typeset_text}
+%
+%\subsection{Normal or Body Text}\label{subsec:body}
+%Please use a 10pt (point) Times font. 
+%Use sans-serif or non-proportional fonts
+%only for special purposes, 
+%such as distinguishing source code.
+%The first paragraph in each section should not be indented, 
+%but all other paragraphs should be.
+%
+%\subsection{Title and Authors}
+%As you can see above, the title is 16pt Times, bold, upper case, and centred.
+%The names of the authors are also centred.
+%The lead author's name is to be listed first (left-most), and the co-authors' 
+%names after. If the addresses for all authors are the same, include the 
+%address only once, centred. If the authors have different addresses, put the 
+%addresses, evenly spaced, under each authors' name.
+%
+%\subsection{First Page Copyright Notice}
+%Please leave the copyright notice exactly as it appears in the lower 
+%left-hand corner of the first page. It is set in 8pt Times, if you are wondering.
+%
+%\subsection{Page Numbering, Headers and Footers}
+%Do not include headers, footers or page numbers in your submission.
+%We add these electronically when we assemble the publications
+%into the proceedings.
+%
+%\section{Headings}
+%First level headings are in Times 12pt bold,
+%centred with 1 line of space above the section head, and 1/2 space below it.
+%For a section header immediately followed by a subsection header, the space 
+%should be merged.
+%
+%\subsection{Second Level Headings}
+%Second level headings are in Times 10pt bold, flush left,
+%with 1 line of space above the section head, and 1/2 space below it.
+%The first letter of each significant word is capitalized.
+%
+%\subsubsection{Third Level Headings}
+%Third level headings are in Times 10pt italic, flush left,
+%with 1/2 line of space above the section head, and 1/2 space below it.
+%The first letter of significant words is capitalized.
+%
+%\subsubsection{Level Headings Beyond the Third}
+%We strongly discourage any use of
+%more than three levels of headings.
+%Also, if you have only one subsection in a section,\footnote{Just like this section.}
+%then you should reorganize it into one section.
+%
+%\section{Floats and equations}
+%
+%\subsection{Equations}
+%Equations of importance, 
+%or to which you refer later,
+%should be placed on separated lines and numbered.
+%The number should be on the right side, in parentheses.
+%\begin{equation}
+%r=\sqrt[13]{3}
+%\label{eq:BP}
+%\end{equation}
+%Refer to equations like so:
+%Equation (\ref{eq:BP}) is of particular 
+%interest in Hamburg.
+%
+%\subsection{Figures, Tables and Captions}
+%\begin{table}[t]
+% \begin{center}
+% \begin{tabular}{|l|l|}
+%  \hline
+%  String value & Numeric value \\
+%  \hline
+%  Moin! SMC & 2017 \\
+%  \hline
+% \end{tabular}
+%\end{center}
+% \caption{Table captions should be placed below the table, exactly like this,
+% but using words different from these.}
+% \label{tab:example}
+%\end{table}
+%
+%All artwork must be centred, neat, clean and legible.
+%And if you include figures in your paper, instead of artwork,
+%please make sure they are centred, neat, clean
+%and completely legible without super-resolution imaging.
+%All lines should be thick and dark enough to be reproducible
+%even by a facsimile machine;
+%and figures should not be hand-drawn unless your hand is robotically precise.
+%Since the proceedings are distributed in electronic form only, 
+%we allow colour to be used in figures;
+%but please check that your figures are 
+%coherent if they are printed in black-and-white.
+%For instance, to make your figures zing in several conditions,
+%vary line thickness, style, and colour at the same time.
+%
+%Numbers and captions of figures and tables always appear below the figure/table.
+%Leave 1 line space between the figure or table and the caption.
+%Figure and tables are numbered consecutively. 
+%Captions should be Times 10pt.
+%And try to make your captions sufficiently explain your figures and tables.
+%Place tables/figures in text as close to the reference as possible, 
+%and preferably at the top of the page.
+%
+%Always refer to tables and figures in the main text, for example:
+%see Fig. \ref{fig:example} and \tabref{tab:example}.
+%Figures and tables may extend across both columns to a maximum width of 17.2cm.
+%
+%Vectorial figures are preferred, e.g., eps.
+%When using \texttt{Matlab}, 
+%export using either (encapsulated) Postscript or PDF format. 
+%In order to optimize readability, 
+%the font size of text within a figure should be no smaller than
+%that of footnotes (8pt font-size). 
+%If you use bitmap figures, make sure that 
+%the resolution is high enough for print quality. 
+%
+%\begin{figure}[t]
+%\centering
+%\includegraphics[width=0.6\columnwidth]{figure}
+%\caption{Figure captions should be placed below the figure, 
+%exactly like this.\label{fig:example}}
+%\end{figure}
+%
+%%\begin{figure}[t]
+%%\figbox{
+%%\subfloat[][]{\includegraphics[width=60mm]{figure}\label{fig:subfigex_a}}\\
+%%\subfloat[][]{\includegraphics[width=80mm]{figure}\label{fig:subfigex_b}}
+%%}
+%%\caption{Here's an example using the subfig package.\label{fig:subfigex} }
+%%\end{figure}
+%
+%\subsection{Footnotes}
+%You can indicate footnotes with a number in the text,\footnote{This is a footnote.}
+%but try to work the content into the main text.
+%Use 8pt font-size for footnotes. 
+%Place the footnotes at the bottom of the page 
+%on which they appear. 
+%Precede the footnote with a 0.5pt horizontal rule.
+%
+%\section{Citations}
+%List all bibliographical references at the end of your paper,
+%inside a section named ``REFERENCES''.
+%Order and number the references in order of appearance. 
+%Do not list references that do not appear in the text.
+%Reference numbers in the text should appear within square brackets, such as 
+%in~\cite{Someone:00} or~\cite{Someone:00,Someone:04,Someone:09}.
+%The reference format is the standard IEEE one. 
+%We highly recommend you use BibTeX 
+%to generate the reference list.
+
+\section{Conclusions}
+To finish your full-length paper, end it with a conclusion;
+and after careful editing and a final spell-cheek,
+submit it through the Conference Web Submission System. 
+\underline{Do not} send papers directly by e-mail.
+%
+\begin{acknowledgments}
+You may acknowledge people, projects, 
+funding agencies, etc. 
+which can be included after the second-level heading
+``Acknowledgments'' (with no numbering).
+\end{acknowledgments} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%bibliography here
+\bibliography{ambib/gerzon-michael}
+
+\end{document}
