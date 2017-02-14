@@ -1,0 +1,3 @@
+[submodule "ambib"]
+	path = ambib
+	url = https://github.com/grammaton/ambib.git
